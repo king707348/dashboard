@@ -3,6 +3,7 @@ import { RouterLink, RouterView } from "vue-router";
 
 import setheader from "./components/header.vue";
 import setAside from "./components/asideList.vue";
+import mainView from './views/mainView.vue'
 </script>
 
 <template>
@@ -15,23 +16,12 @@ import setAside from "./components/asideList.vue";
         <el-aside width="200px">
           <setAside></setAside>
         </el-aside>
-        <el-main>Main</el-main>
+        <el-main>
+          <mainView></mainView>
+        </el-main>
       </el-container>
     </el-container>
   </div>
-
-  <!-- <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" /> -->
-
-  <!-- <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div> -->
-
-  <RouterView />
 </template>
 
 <style lang="scss" scoped>
@@ -46,5 +36,8 @@ import setAside from "./components/asideList.vue";
     position: sticky;
     top: 0;
     z-index: 999;
+  }
+  .el-main{
+    padding: 0;
   }
 </style>

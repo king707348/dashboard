@@ -2,17 +2,20 @@
   <aside class="aside">
     <el-scrollbar>
       <el-menu :default-openeds="['1']">
-        <el-menu-item index="1">
-          <template #title
-            ><el-icon><message /></el-icon>儀表板
-          </template>
-        </el-menu-item>
-        <el-sub-menu index="2">
-          <template #title>
-            <el-icon><message /></el-icon>資產管理
-          </template>
-          <el-menu-item index="2-1">Option 1</el-menu-item>
-        </el-sub-menu>
+        <router-link to="/">
+          <el-menu-item index="1">
+            <template #title>
+              <el-icon><message /></el-icon>儀表板
+            </template>
+          </el-menu-item>
+        </router-link>
+        <router-link to="/assetsManagement">
+          <el-menu-item index="2">
+            <template #title>
+              <el-icon><message /></el-icon>資產管理
+            </template>
+          </el-menu-item>
+        </router-link>
         <el-sub-menu index="3">
           <template #title>
             <el-icon><ChatLineSquare /></el-icon>GCB管理
@@ -50,7 +53,6 @@
             <el-icon><Search Search /></el-icon>搜尋
           </template>
         </el-menu-item>
-
         <el-sub-menu index="9">
           <template #title>
             <el-icon><Setting /></el-icon>設定
@@ -81,6 +83,7 @@ import {
 .el-menu {
   background: #3c3c3c;
   height: fit-content;
+  border: none;
 
   :deep() {
     .el-sub-menu__title,
@@ -88,9 +91,12 @@ import {
       color: #ececec;
     }
     .el-sub-menu .el-menu {
-    color: #ececec;
-    background: #3c3c3c;
-  }
+      color: #ececec;
+      background: #3c3c3c;
+    }
+    &:hover {
+      background: #6c6c6c;
+    }
   }
 }
 </style>
