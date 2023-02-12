@@ -30,11 +30,12 @@ import mainView from './views/mainView.vue'
     top: 0;
     padding: 0;
     height: auto;
-    z-index: 999;
+    background: #ffffff;
+    z-index: 1000;
   }
   .el-aside{
-    position: sticky;
-    top: 0;
+    position: relative;
+    background: #3c3c3c;
     z-index: 999;
   }
   .el-main{

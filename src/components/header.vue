@@ -30,6 +30,7 @@
     $black: #8a8a8a;
 
     .header{
+
         display: flex;
         border-bottom: 1px solid $black;
         .logo{

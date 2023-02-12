@@ -2,9 +2,9 @@
   <div>
     <el-breadcrumb separator="/">
       <el-breadcrumb-item :to="{ path: '/' }">homepage</el-breadcrumb-item>
-      <el-breadcrumb-item
-        ><a href="/">promotion management</a></el-breadcrumb-item
-      >
+      <el-breadcrumb-item>
+        <a href="/">promotion management</a>
+        </el-breadcrumb-item>
     </el-breadcrumb>
     <div class="view">
       <RouterView />
@@ -20,7 +20,8 @@
     padding: 1rem;
 }
 .view{
-    background: #9c9c9c;
+    background: #c3c3c3;
     padding: 1rem;
+    height: 90vh;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <aside class="aside">
+  <div class="aside">
     <el-scrollbar>
       <el-menu :default-openeds="['1']">
         <router-link to="/">
@@ -63,7 +63,7 @@
         </el-sub-menu>
       </el-menu>
     </el-scrollbar>
-  </aside>
+  </div>
 </template>
 
 <script setup>
@@ -80,15 +80,17 @@ import {
 </script>
 
 <style lang="scss" scoped>
+.aside{
+  position: fixed;
+}
 .el-menu {
-  background: #3c3c3c;
-  height: fit-content;
   border: none;
 
   :deep() {
     .el-sub-menu__title,
     .el-menu-item {
       color: #ececec;
+      background: #3c3c3c;
     }
     .el-sub-menu .el-menu {
       color: #ececec;
