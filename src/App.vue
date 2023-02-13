@@ -4,6 +4,8 @@ import { RouterLink, RouterView } from "vue-router";
 import setheader from "./components/header.vue";
 import setAside from "./components/asideList.vue";
 import mainView from './views/mainView.vue'
+
+
 </script>
 
 <template>

@@ -1,89 +1,164 @@
 <template>
-  <div class="data-assets">
-    <div class="obj-data">
+  <div class="data-title"  >
+    <!-- element -->
+    <div class="obj-data element">
       <div class="icons">
-        <el-icon :size="40"><ElementPlus /></el-icon>
+        <el-icon :size="40"><ElementPlus color="#00f" /></el-icon>
+        
       </div>
       <div class="show-data">
-        <div class="data">1</div>
-        <div class="directions">文字</div>
+        <div class="data">{{ counterStore.newData[0] }}</div>
+        <div class="directions">資產總數</div>
       </div>
     </div>
-    <div class="obj-data">
+    <!-- CircleCheck -->
+    <div class="obj-data circle-check">
       <div class="icons">
-        <el-icon :size="40"><ElementPlus /></el-icon>
+        <el-icon :size="40"><CircleCheck color="#0f0" /></el-icon>
       </div>
       <div class="show-data">
         <div class="data">1</div>
-        <div class="directions">文字</div>
+        <div class="directions">今日回報數</div>
       </div>
     </div>
-    <div class="obj-data">
+    <!-- CircleClose -->
+    <div class="obj-data circle-close">
       <div class="icons">
-        <el-icon :size="40"><ElementPlus /></el-icon>
+        <el-icon :size="40"><CircleClose  color="#f00" /></el-icon>
       </div>
       <div class="show-data">
         <div class="data">1</div>
-        <div class="directions">文字</div>
+        <div class="directions">今日未回報數</div>
       </div>
     </div>
-    <div class="obj-data">
+    <!-- QuestionFilled -->
+    <div class="obj-data question-filled">
       <div class="icons">
-        <el-icon :size="40"><ElementPlus /></el-icon>
+        <el-icon :size="40"><QuestionFilled /></el-icon>
       </div>
       <div class="show-data">
         <div class="data">1</div>
-        <div class="directions">文字</div>
+        <div class="directions">30天未回報數</div>
+      </div>
+    </div>
+    <!-- department -->
+    <div class="obj-data department department-other">
+      <div class="icons">
+        <div>部門</div>
+        <el-icon :size="15"><Download /></el-icon>
+      </div>
+      <div class="show-data">
+        <select name="sel-dep" id="">
+          <option value="all">全部</option>
+          <option value="dep1">部門1</option>
+          <option value="dep2">部門2</option>
+        </select>
+      </div>
+    </div>
+    <!--department  -->
+    <div class="obj-data department department-self">
+      <div class="icons">
+        <div>本部</div>
+        <el-icon :size="15"><Warning /></el-icon>
+      </div>
+      <div class="show-data">
+        <el-button type="info">選擇分站</el-button>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-    import { Menu as ElementPlus } from "@element-plus/icons-vue";
+import { reactive } from "vue";
 
-    const topData = reactive([
-        {
-            type: 'assets',
-            icon: 'ElementPlus',
-            data: 1,
-            text: '資產總數'
+import { useCounterStore} from "@/stores/counter.js";
+import { storeToRefs } from "pinia";
 
-        },{
-            type: 'success',
-            icon: 'CircleCheck',
-            data: 1,
-            text: '今日回報數'
-        },{
-            type: 'error',
-            icon: 'CircleClose',
-            data: 1,
-            text: '今日回報數'
-        },{
-            type: 'unknown',
-            icon: 'QuestionFilled',
-            data: 1,
-            text: '30天未回報數'
-        }
-    ])
+import {
+  Menu as ElementPlus,
+  CircleCheck,
+  CircleClose,
+  QuestionFilled,
+  Warning,
+  Download,
+} from "@element-plus/icons-vue";
+import { assert } from "@vue/compiler-core";
+
+defineProps({
+  data_title:Array
+})
+
+const counterStore = useCounterStore();
+const { newData } = storeToRefs(counterStore)
+
 </script>
 
 <style lang="scss" scoped>
-.data-assets {
+.data-title {
   display: flex;
   .obj-data {
     display: flex;
+    justify-content: center;
     gap: 1rem;
-    border: 1px solid gray;
-    border-radius: 4px;
+    border: 1px solid rgba(180, 180, 180, 0.8);
+    border-radius: 6px;
     max-width: 15%;
     width: 100%;
-    padding: 1rem;
-    margin: 0.5rem 1rem;
+    padding: 1.75rem 1rem;
+    margin: 0.75rem 1rem;
     .icons {
       display: flex;
+      justify-content: center;
+      margin: auto 0;
+      .el-icon {
+        margin: auto 0;
+      }
+    }
+    .show-data {
       margin: auto 0;
     }
+  }
+  .element{
+    .data{
+      color: #00f;
+      font-size: 18px;
+      font-weight: 700;
+    }
+  }
+  .circle-check{
+    .data{
+      color: #0f0;
+      font-size: 18px;
+      font-weight: 700;
+    }
+  }
+  .circle-close{
+    .data{
+      color: #f00;
+      font-size: 18px;
+      font-weight: 700;
+    }
+  }
+  .directions{
+    font-size: 15px;
+  }
+
+  .department {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    .show-data {
+      margin: auto;
+      select[name="sel-dep"] {
+        min-width: 100px;
+        width: 100%;
+        padding: 0.15rem;
+        border-color: rgba(180, 180, 180, 0.4);
+      }
+    }
+  }
+  .department-self {
+    flex: 1;
   }
 }
 </style>

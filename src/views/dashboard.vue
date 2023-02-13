@@ -1,20 +1,29 @@
 <template>
   <div>
     <el-tabs type="border-card">
-      <el-tab-pane label="資產"> 
+      <el-tab-pane label="資產">
         <div>
-            <viewDataList />
+          <viewDataList  />
         </div>
-        </el-tab-pane>
-      <el-tab-pane label="GCB"> Config </el-tab-pane>
-      <el-tab-pane label="VANS"> Role </el-tab-pane>
+      </el-tab-pane>
+      <el-tab-pane label="GCB">
+        <div>
+          <viewDataList  />
+        </div>
+      </el-tab-pane>
+      <el-tab-pane label="VANS" >
+        <div>
+          <viewDataList  />
+        </div>
+      </el-tab-pane>
     </el-tabs>
   </div>
 </template>
 
 <script setup>
-    import viewDataList from '../components/viewDataList.vue';
+import { reactive } from "vue";
 
+import viewDataList from "../components/viewDataList.vue";
 
 </script>
 
