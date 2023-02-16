@@ -1,19 +1,19 @@
 <template>
   <div>
-    <el-tabs type="border-card">
-      <el-tab-pane label="資產">
+    <el-tabs type="border-card" v-model="activeName" @click="handle">
+      <el-tab-pane label="資產" name="assets" >
         <div>
-          <viewDataList  />
+          <tabAsserts />
         </div>
       </el-tab-pane>
-      <el-tab-pane label="GCB">
+      <el-tab-pane label="GCB" name="gcb">
         <div>
-          <viewDataList  />
+          <tabGcb />
         </div>
       </el-tab-pane>
-      <el-tab-pane label="VANS" >
+      <el-tab-pane label="VANS" name="vans">
         <div>
-          <viewDataList  />
+          <tabVans />
         </div>
       </el-tab-pane>
     </el-tabs>
@@ -21,9 +21,18 @@
 </template>
 
 <script setup>
-import { reactive } from "vue";
+import { ref, reactive } from "vue";
 
-import viewDataList from "../components/viewDataList.vue";
+import tabAsserts from "@/components/tab-asserts.vue";
+import tabGcb from "@/components/tab-gcb.vue";
+import tabVans from '@/components/tab-vans.vue'
+
+const activeName = ref('assets')
+
+const handle = (tab) => {
+  // console.log(tab)
+}
+
 
 </script>
 

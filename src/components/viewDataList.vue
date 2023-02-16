@@ -1,96 +1,17 @@
 <template>
-  <div class="data-title"  >
-    <!-- element -->
-    <div class="obj-data element">
-      <div class="icons">
-        <el-icon :size="40"><ElementPlus color="#00f" /></el-icon>
-        
-      </div>
-      <div class="show-data">
-        <div class="data">{{ counterStore.newData[0] }}</div>
-        <div class="directions">資產總數</div>
-      </div>
-    </div>
-    <!-- CircleCheck -->
-    <div class="obj-data circle-check">
-      <div class="icons">
-        <el-icon :size="40"><CircleCheck color="#0f0" /></el-icon>
-      </div>
-      <div class="show-data">
-        <div class="data">1</div>
-        <div class="directions">今日回報數</div>
-      </div>
-    </div>
-    <!-- CircleClose -->
-    <div class="obj-data circle-close">
-      <div class="icons">
-        <el-icon :size="40"><CircleClose  color="#f00" /></el-icon>
-      </div>
-      <div class="show-data">
-        <div class="data">1</div>
-        <div class="directions">今日未回報數</div>
-      </div>
-    </div>
-    <!-- QuestionFilled -->
-    <div class="obj-data question-filled">
-      <div class="icons">
-        <el-icon :size="40"><QuestionFilled /></el-icon>
-      </div>
-      <div class="show-data">
-        <div class="data">1</div>
-        <div class="directions">30天未回報數</div>
-      </div>
-    </div>
-    <!-- department -->
-    <div class="obj-data department department-other">
-      <div class="icons">
-        <div>部門</div>
-        <el-icon :size="15"><Download /></el-icon>
-      </div>
-      <div class="show-data">
-        <select name="sel-dep" id="">
-          <option value="all">全部</option>
-          <option value="dep1">部門1</option>
-          <option value="dep2">部門2</option>
-        </select>
-      </div>
-    </div>
-    <!--department  -->
-    <div class="obj-data department department-self">
-      <div class="icons">
-        <div>本部</div>
-        <el-icon :size="15"><Warning /></el-icon>
-      </div>
-      <div class="show-data">
-        <el-button type="info">選擇分站</el-button>
-      </div>
-    </div>
+  <div class="data-title">
+    <asserts />
   </div>
 </template>
 
 <script setup>
 import { reactive } from "vue";
 
-import { useCounterStore} from "@/stores/counter.js";
-import { storeToRefs } from "pinia";
-
-import {
-  Menu as ElementPlus,
-  CircleCheck,
-  CircleClose,
-  QuestionFilled,
-  Warning,
-  Download,
-} from "@element-plus/icons-vue";
-import { assert } from "@vue/compiler-core";
+import asserts from "./tab-asserts.vue";
 
 defineProps({
-  data_title:Array
-})
-
-const counterStore = useCounterStore();
-const { newData } = storeToRefs(counterStore)
-
+  data_title: String,
+});
 </script>
 
 <style lang="scss" scoped>
@@ -118,28 +39,34 @@ const { newData } = storeToRefs(counterStore)
       margin: auto 0;
     }
   }
-  .element{
-    .data{
+  .element {
+    .data {
       color: #00f;
       font-size: 18px;
       font-weight: 700;
     }
   }
-  .circle-check{
-    .data{
+  .circle-check {
+    .data {
       color: #0f0;
       font-size: 18px;
       font-weight: 700;
     }
   }
-  .circle-close{
-    .data{
+  .circle-close {
+    .data {
       color: #f00;
       font-size: 18px;
       font-weight: 700;
     }
   }
-  .directions{
+  .question-filled {
+    .data {
+      font-size: 18px;
+      font-weight: 700;
+    }
+  }
+  .directions {
     font-size: 15px;
   }
 
@@ -150,7 +77,7 @@ const { newData } = storeToRefs(counterStore)
     .show-data {
       margin: auto;
       select[name="sel-dep"] {
-        min-width: 100px;
+        min-width: 150px;
         width: 100%;
         padding: 0.15rem;
         border-color: rgba(180, 180, 180, 0.4);
@@ -158,7 +85,7 @@ const { newData } = storeToRefs(counterStore)
     }
   }
   .department-self {
-    flex: 1;
+    flex: 0.5;
   }
 }
 </style>
