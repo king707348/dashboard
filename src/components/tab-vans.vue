@@ -6,7 +6,7 @@
         <el-icon :size="40"><ElementPlus color="#00f" /></el-icon>
       </div>
       <div class="show-data">
-        <div class="data">{{ counterStore.newData[0].vans.asset_count }}</div>
+        <div class="data">{{ counterStore.newData.vans_total }}</div>
         <div class="directions">資產總數</div>
       </div>
     </div>
@@ -16,7 +16,7 @@
         <el-icon :size="40"><CircleCheck color="#0f0" /></el-icon>
       </div>
       <div class="show-data">
-        <div class="data">{{ counterStore.newData[0].vans.no_riskLen }}</div>
+        <div class="data">{{ counterStore.newData.vans_no_riskLen }}</div>
         <div class="directions">無風險資產數</div>
       </div>
     </div>
@@ -26,7 +26,7 @@
         <el-icon :size="40"><Warning color="#0f0" /></el-icon>
       </div>
       <div class="show-data">
-        <div class="data">{{ counterStore.newData[0].vans.l_riskLen }}</div>
+        <div class="data">{{ counterStore.newData.vans_l_riskLen }}</div>
         <div class="directions">低風險資產數</div>
       </div>
     </div>
@@ -36,7 +36,7 @@
         <el-icon :size="40"><Warning color="#FFA500" /></el-icon>
       </div>
       <div class="show-data">
-        <div class="data">{{ counterStore.newData[0].vans.m_riskLen }}</div>
+        <div class="data">{{ counterStore.newData.vans_m_riskLen }}</div>
         <div class="directions">中風險資產數</div>
       </div>
     </div>
@@ -46,7 +46,7 @@
         <el-icon :size="40"><CircleClose color="#f00" /></el-icon>
       </div>
       <div class="show-data">
-        <div class="data">{{ counterStore.newData[0].vans.h_riskLen }}</div>
+        <div class="data">{{counterStore.newData.vans_h_riskLen  }}</div>
         <div class="directions">高風險資產數</div>
       </div>
     </div>
@@ -56,7 +56,7 @@
         <el-icon :size="40"><QuestionFilled /></el-icon>
       </div>
       <div class="show-data">
-        <div class="data">{{ counterStore.newData[0].vans.no_auditLen }}</div>
+        <div class="data">{{ counterStore.newData.vans_no_auditLen }}</div>
         <div class="directions">未稽查資產數</div>
       </div>
     </div>

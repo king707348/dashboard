@@ -6,7 +6,7 @@
         <el-icon :size="40"><ElementPlus color="#00f" /></el-icon>
       </div>
       <div class="show-data">
-        <div class="data">{{ counterStore.newData[0].vans.asset_count }}</div>
+        <div class="data">{{ counterStore.newData.vans_total }}</div>
         <div class="directions">資產總數</div>
       </div>
     </div>
@@ -16,7 +16,7 @@
         <el-icon :size="40"><CircleCheck color="#0f0" /></el-icon>
       </div>
       <div class="show-data">
-        <div class="data">{{ counterStore.newData[0].asset.assetLen }}</div>
+        <div class="data">{{ counterStore.newData.assetData }}</div>
         <div class="directions">今日回報數</div>
       </div>
     </div>
@@ -26,7 +26,7 @@
         <el-icon :size="40"><CircleClose color="#f00" /></el-icon>
       </div>
       <div class="show-data">
-        <div class="data">{{ counterStore.newData[0].asset.noneAssets30ResDataLen }}</div>
+        <div class="data">{{ counterStore.newData.noneResData }}</div>
         <div class="directions">今日未回報數</div>
       </div>
     </div>
@@ -36,7 +36,7 @@
         <el-icon :size="40"><QuestionFilled /></el-icon>
       </div>
       <div class="show-data">
-        <div class="data">{{ counterStore.newData[0].asset.noneAssetsResDataLen }}</div>
+        <div class="data">{{ counterStore.newData.none30ResData }}</div>
         <div class="directions">30天未回報數</div>
       </div>
     </div>
@@ -68,6 +68,7 @@
 </template>
 
 <script setup>
+import { ref, reactive } from 'vue'
 import { useCounterStore } from "@/stores/counter.js";
 import { storeToRefs } from "pinia";
 
@@ -82,6 +83,7 @@ import {
 
 const counterStore = useCounterStore();
 const { newData } = storeToRefs(counterStore);
+
 </script>
 
 <style lang="scss" scoped>

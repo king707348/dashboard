@@ -6,7 +6,7 @@
         <el-icon :size="40"><ElementPlus color="#00f" /></el-icon>
       </div>
       <div class="show-data">
-        <div class="data">{{  }}</div>
+        <div class="data">{{ counterStore.newData.vans_total }}</div>
         <div class="directions">資產總數</div>
       </div>
     </div>
@@ -16,7 +16,7 @@
         <el-icon :size="40"><CircleCheck color="#0f0" /></el-icon>
       </div>
       <div class="show-data">
-        <div class="data">{{  }}</div>
+        <div class="data">{{ counterStore.newData.agentPassStat_pass }}</div>
         <div class="directions">符合數</div>
       </div>
     </div>
@@ -26,7 +26,7 @@
         <el-icon :size="40"><CircleClose color="#f00" /></el-icon>
       </div>
       <div class="show-data">
-        <div class="data">{{  }}</div>
+        <div class="data">{{ counterStore.newData.agentPassStat_failed }}</div>
         <div class="directions">未符合數</div>
       </div>
     </div>
@@ -36,7 +36,7 @@
         <el-icon :size="40"><QuestionFilled /></el-icon>
       </div>
       <div class="show-data">
-        <div class="data">{{  }}</div>
+        <div class="data">{{ counterStore.newData.agentPassStat_other }}</div>
         <div class="directions">未稽核數</div>
       </div>
     </div>
