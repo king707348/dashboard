@@ -1,74 +1,89 @@
 <template>
-  <div class="data-title">
-    <!-- element -->
-    <div class="obj-data element">
-      <div class="icons">
-        <el-icon :size="40"><ElementPlus color="#00f" /></el-icon>
+  <div>
+    <div class="data-title">
+      <!-- element -->
+      <div class="obj-data element">
+        <div class="icons">
+          <el-icon :size="40"><ElementPlus color="#00f" /></el-icon>
+        </div>
+        <div class="show-data">
+          <div class="data">{{ newData.vans_total }}</div>
+          <div class="directions">資產總數</div>
+        </div>
       </div>
-      <div class="show-data">
-        <div class="data">{{ counterStore.newData.vans_total }}</div>
-        <div class="directions">資產總數</div>
+      <!-- CircleCheck -->
+      <div class="obj-data circle-check">
+        <div class="icons">
+          <el-icon :size="40"><CircleCheck color="#0f0" /></el-icon>
+        </div>
+        <div class="show-data">
+          <div class="data">{{ newData.assetData }}</div>
+          <div class="directions">今日回報數</div>
+        </div>
+      </div>
+      <!-- CircleClose -->
+      <div class="obj-data circle-close">
+        <div class="icons">
+          <el-icon :size="40"><CircleClose color="#f00" /></el-icon>
+        </div>
+        <div class="show-data">
+          <div class="data">{{ newData.noneResData }}</div>
+          <div class="directions">今日未回報數</div>
+        </div>
+      </div>
+      <!-- QuestionFilled -->
+      <div class="obj-data question-filled">
+        <div class="icons">
+          <el-icon :size="40"><QuestionFilled /></el-icon>
+        </div>
+        <div class="show-data">
+          <div class="data">{{ newData.none30ResData }}</div>
+          <div class="directions">30天未回報數</div>
+        </div>
+      </div>
+      <!-- department -->
+      <div class="obj-data department department-other">
+        <div class="icons">
+          <div>部門</div>
+          <el-icon :size="15"><Download /></el-icon>
+        </div>
+        <div class="show-data">
+          <select name="sel-dep" id="">
+            <option value="all">全部</option>
+            <option value="dep1">部門1</option>
+            <option value="dep2">部門2</option>
+          </select>
+        </div>
+      </div>
+      <!--department  -->
+      <div class="obj-data department department-self">
+        <div class="icons">
+          <div>本部</div>
+          <el-icon :size="15"><Warning /></el-icon>
+        </div>
+        <div class="show-data">
+          <el-button type="info">選擇分站</el-button>
+        </div>
       </div>
     </div>
-    <!-- CircleCheck -->
-    <div class="obj-data circle-check">
-      <div class="icons">
-        <el-icon :size="40"><CircleCheck color="#0f0" /></el-icon>
-      </div>
-      <div class="show-data">
-        <div class="data">{{ counterStore.newData.assetData }}</div>
-        <div class="directions">今日回報數</div>
-      </div>
-    </div>
-    <!-- CircleClose -->
-    <div class="obj-data circle-close">
-      <div class="icons">
-        <el-icon :size="40"><CircleClose color="#f00" /></el-icon>
-      </div>
-      <div class="show-data">
-        <div class="data">{{ counterStore.newData.noneResData }}</div>
-        <div class="directions">今日未回報數</div>
-      </div>
-    </div>
-    <!-- QuestionFilled -->
-    <div class="obj-data question-filled">
-      <div class="icons">
-        <el-icon :size="40"><QuestionFilled /></el-icon>
-      </div>
-      <div class="show-data">
-        <div class="data">{{ counterStore.newData.none30ResData }}</div>
-        <div class="directions">30天未回報數</div>
-      </div>
-    </div>
-    <!-- department -->
-    <div class="obj-data department department-other">
-      <div class="icons">
-        <div>部門</div>
-        <el-icon :size="15"><Download /></el-icon>
-      </div>
-      <div class="show-data">
-        <select name="sel-dep" id="">
-          <option value="all">全部</option>
-          <option value="dep1">部門1</option>
-          <option value="dep2">部門2</option>
-        </select>
-      </div>
-    </div>
-    <!--department  -->
-    <div class="obj-data department department-self">
-      <div class="icons">
-        <div>本部</div>
-        <el-icon :size="15"><Warning /></el-icon>
-      </div>
-      <div class="show-data">
-        <el-button type="info">選擇分站</el-button>
+    <div class="data-main">
+      <div class="title">資料</div>
+      <div class="info">
+        <div class="side1">
+          xxx
+        </div>
+        <div class="side2">
+          <assetsChart />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue'
+import assetsChart from '@/components/assetsChart.vue'
+
+import { ref, reactive } from "vue";
 import { useCounterStore } from "@/stores/counter.js";
 import { storeToRefs } from "pinia";
 
@@ -83,6 +98,8 @@ import {
 
 const counterStore = useCounterStore();
 const { newData } = storeToRefs(counterStore);
+
+
 
 </script>
 
@@ -159,5 +176,17 @@ const { newData } = storeToRefs(counterStore);
   .department-self {
     flex: 0.5;
   }
+}
+.data-main{
+  .info{
+    display: flex;
+    .side1{
+      width:100%;
+    }
+    .side2{
+      width:100%;
+    }
+  }
+
 }
 </style>
